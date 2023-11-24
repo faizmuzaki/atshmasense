@@ -21,4 +21,12 @@ class AuthController extends BaseController
     {
         return view('auth/register');
     }
+    public function forgot()
+    {
+        return view('auth/forgot');
+    }
+    public function reset()
+    {
+        return view('auth/reset-password');
+    }
 }

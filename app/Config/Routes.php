@@ -64,3 +64,5 @@ $routes->delete('/api/article/(:any)', [Article::class, 'delete']);
 
 $routes->get('/login', [AuthController::class, 'login']);
 $routes->get('/register', [AuthController::class, 'register']);
+$routes->get('/forgot', [AuthController::class, 'forgot']);
+$routes->get('/reset-password', [AuthController::class, 'reset']);

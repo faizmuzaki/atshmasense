@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="<?= base_url('assets/modules/fontawesome/css/all.min.css') ?>">
 
   <!-- CSS Libraries -->
-  <link rel="stylesheet" href="<?= base_url('assets/modules/bootstrap-social/bootstrap-social.css') ?>">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
@@ -37,47 +36,56 @@
       <div class="container mt-5">
         <div class="row">
           <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-            <div class="card card-primary mt-5">
+            <div class="login-brand">
+            </div>
+
+            <div class="card card-primary">
               <div class="card-header">
-                <h4>Login</h4>
+                <h4>Reset Password</h4>
               </div>
-              <?= view('Myth\Auth\Views\_message_block') ?>
 
               <div class="card-body">
-                <form action="<?= url_to('login') ?>" method="post">
-                  <?= csrf_field() ?>
-
+                <p class="text-muted">We will send a link to reset your password</p>
+                <form action="<?= url_to('reset-password') ?>" method="post">
                   <div class="form-group">
-                    <label for="login"><?= lang('Auth.emailOrUsername') ?></label>
-                    <input type="text" class="form-control <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" name="login" placeholder="<?= lang('Auth.emailOrUsername') ?>">
+                    <label for="token"><?= lang('Auth.token') ?></label>
+                    <input type="text" class="form-control <?php if (session('errors.token')) : ?>is-invalid<?php endif ?>" name="token" placeholder="<?= lang('Auth.token') ?>" value="<?= old('token', $token ?? '') ?>">
                     <div class="invalid-feedback">
-                      <?= session('errors.login') ?>
+                      <?= session('errors.token') ?>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="password" class="control-label">Password</label>
-                    <div class="float-right">
-                      <a href="<?= base_url('/forgot') ?>" class="text-small">
-                        Forgot Password?
-                      </a>
-                    </div>
-                    <input type="password" name="password" class="form-control  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="<?= lang('Auth.password') ?>">
+                    <label for="email"><?= lang('Auth.email') ?></label>
+                    <input type="email" class="form-control <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" name="email" aria-describedby="emailHelp" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?>">
                     <div class="invalid-feedback">
-                      <?= session('errors.password') ?>
+                      <?= session('errors.email') ?>
                     </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="password">New Password</label>
+                    <input type="password" class="form-control <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" name="password">
+                    <div id="pwindicator" class="pwindicator">
+                      <div class="bar"></div>
+                      <div class="label"></div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="password-confirm">Confirm Password</label>
+                    <input type="password" class="form-control <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" name="pass_confirm">
                   </div>
 
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                      Login
+                      Reset Password
                     </button>
                   </div>
                 </form>
-
               </div>
             </div>
-            <div class="mt-2 text-muted text-center">
-              Don't have an account? <a href="<?= base_url('/register') ?>">Create One</a>
+            <div class="simple-footer">
+              Copyright &copy; Asthmasense 2023
             </div>
           </div>
         </div>
@@ -93,6 +101,7 @@
   <script src="<?= base_url('assets/modules/nicescroll/jquery.nicescroll.min.js') ?>"></script>
   <script src="<?= base_url('assets/modules/moment.min.js') ?>"></script>
   <script src="<?= base_url('assets/js/stisla.js') ?>"></script>
+
 
   <!-- JS Libraies -->
 
