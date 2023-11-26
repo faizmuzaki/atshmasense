@@ -4,9 +4,6 @@
   <section class="section">
     <div class="section-header">
       <h1>Posts</h1>
-      <div class="section-header-button">
-        <a href="features-post-create.html" class="btn btn-primary">Add New</a>
-      </div>
       <div class="section-header-breadcrumb">
         <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
         <div class="breadcrumb-item"><a href="#">Posts</a></div>
@@ -25,7 +22,7 @@
             <div class="card-body">
               <ul class="nav nav-pills">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">All</a>
+                  <a class="nav-link active" href="<?= base_url('/admin/article/create') ?>">Add New</a>
                 </li>
               </ul>
             </div>
@@ -41,6 +38,8 @@
             <div class="card-body">
               <div class="clearfix mb"></div>
               <div class="table-responsive">
+                <?= view('Myth\Auth\Views\_message_block') ?>
+
                 <table class="table table-striped">
                   <tr>
                     <th class="text-center pt-2">
@@ -65,12 +64,19 @@
                         </div>
                       </td>
                       <td><?= $article['title'] ?>
-                        <div class="table-links">
+                        <div class="table-links text-center d-flex justify-content-start align-items-center">
                           <a href="<?= base_url('/user/article/' . $article['id']) ?>">View</a>
                           <div class="bullet"></div>
                           <a href="<?= base_url('/admin/article/' . $article["id"] . '/edit') ?>">Edit</a>
-                          <!-- <div class="bullet"></div> -->
-                          <!-- <a href="#" class="text-danger">Trash</a> -->
+                          <div class="bullet"></div>
+                          <form id="deleteForm<?= $article['id'] ?>" action="<?= base_url('admin/article/' . $article['id']) ?>" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <?= csrf_field() ?>
+                            <button class="btn btn-link text-red" style="color: red; margin-left: -13px; background: none; border: none;" onclick="confirmDelete(event, <?= $article['id'] ?>)">
+                              <i class=" text-danger" aria-hidden="true"></i>
+                              Trash
+                            </button>
+                          </form>
                         </div>
                       </td>
 
@@ -80,7 +86,7 @@
                           <div class="d-inline-block ml-1">Admin</div>
                         </a>
                       </td>
-                      <td>2018-01-20</td>
+                      <td><?= $article['created_at'] ?></td>
                       <td>
                         <div class="badge badge-primary">Published</div>
                       </td>
@@ -96,4 +102,14 @@
     </div>
   </section>
 </div>
+<script>
+  function confirmDelete(event, articleId) {
+    var confirmDelete = confirm("Are you sure you want to delete this article?");
+
+    if (!confirmDelete) {
+      event.preventDefault();
+      return false;
+    }
+  }
+</script>
 <?= $this->endSection('content') ?>

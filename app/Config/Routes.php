@@ -34,9 +34,11 @@ $routes->get('/admin/show/(:any)', [AdminController::class, 'showRule'], ['filte
 $routes->get('/admin/rule/(:any)/(:any)', [AdminController::class, 'updateRule'], ['filter' => 'role:admin']);
 $routes->put('/admin/rule/(:any)', [AdminController::class, 'updatesRule'], ['filter' => 'role:admin']);
 
-$routes->get('/admin/article', [AdminController::class, 'article'], ['filter' => 'role:admin']);
 $routes->get('/admin/article/create', [AdminController::class, 'createArticle'], ['filter' => 'role:admin']);
 $routes->get('/admin/article/(:any)/edit', [AdminController::class, 'editAriticle'], ['filter' => 'role:admin']);
+$routes->post('/admin/article', [AdminController::class, 'storeArticle'], ['filter' => 'role:admin']);
+$routes->get('/admin/article', [AdminController::class, 'article'], ['filter' => 'role:admin']);
+$routes->delete('/admin/article/(:any)', [AdminController::class, 'deleteArticle'], ['filter' => 'role:admin']);
 
 
 
