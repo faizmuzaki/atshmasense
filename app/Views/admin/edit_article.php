@@ -27,7 +27,7 @@
               <h4>Write Your Post</h4>
             </div>
             <div class="card-body">
-              <form action="<?= base_url('/api/article/' . $article['id']) ?>" method="POST" enctype="multipart/form-data">
+              <form action="<?= base_url('/admin/article/' . $article['id']) ?>" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_method" value="PUT">
                 <?= csrf_field() ?>
                 <div class="form-group row mb-4">
@@ -57,26 +57,10 @@
                     </div>
                   </div>
                 </div>
-                <!-- <div class="form-group row mb-4">
-                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Tags</label>
-                <div class="col-sm-12 col-md-7">
-                  <input type="text" class="form-control inputtags">
-                </div>
-              </div>
-              <div class="form-group row mb-4">
-                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status</label>
-                <div class="col-sm-12 col-md-7">
-                  <select class="form-control selectric">
-                    <option>Publish</option>
-                    <option>Draft</option>
-                    <option>Pending</option>
-                  </select>
-                </div>
-              </div> -->
                 <div class="form-group row mb-4">
                   <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                   <div class="col-sm-12 col-md-7">
-                    <button class="btn btn-primary">Create Post</button>
+                    <button class="btn btn-primary">Update Post</button>
                   </div>
                 </div>
               </form>

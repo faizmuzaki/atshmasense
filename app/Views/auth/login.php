@@ -56,14 +56,14 @@
                   </div>
                   <div class="form-group">
                     <label for="password" class="control-label">Password</label>
-                    <div class="float-right">
-                      <a href="<?= base_url('/forgot') ?>" class="text-small">
-                        Forgot Password?
-                      </a>
-                    </div>
                     <input type="password" name="password" class="form-control  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="<?= lang('Auth.password') ?>">
                     <div class="invalid-feedback">
                       <?= session('errors.password') ?>
+                    </div>
+                    <div class="float-right mt-2 mb-2">
+                      <a href="<?= base_url('/forgot') ?>" class="text-small">
+                        Forgot Password?
+                      </a>
                     </div>
                   </div>
 

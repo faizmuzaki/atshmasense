@@ -56,6 +56,7 @@ class Article extends ResourceController
     // update
     public function update($id = null)
     {
+
         $model = new ArticleModel();
         $path  = 'assets/uploads/img/';
         $image = $this->request->getFile('image');

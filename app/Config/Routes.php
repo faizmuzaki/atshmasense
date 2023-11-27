@@ -39,6 +39,7 @@ $routes->get('/admin/article/(:any)/edit', [AdminController::class, 'editAriticl
 $routes->post('/admin/article', [AdminController::class, 'storeArticle'], ['filter' => 'role:admin']);
 $routes->get('/admin/article', [AdminController::class, 'article'], ['filter' => 'role:admin']);
 $routes->delete('/admin/article/(:any)', [AdminController::class, 'deleteArticle'], ['filter' => 'role:admin']);
+$routes->put('/admin/article/(:any)', [AdminController::class, 'updateArticle'], ['filter' => 'role:admin']);
 
 
 

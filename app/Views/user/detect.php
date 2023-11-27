@@ -23,22 +23,26 @@
               <form action="<?= base_url('user/store/') ?>" method="post">
                 <?= csrf_field() ?>
                 <?php
+                $i = 1;
                 foreach ($symptoms as $item) {
                 ?>
                   <div class="form-group row">
-                    <label class="col-sm-12 col-form-label"><?= $item['symptoms_name'] ?></label>
+                    <label class="col-sm-12 col-form-label"><?= $i . ". " . $item['symptoms_name'] ?></label>
                     <div class="col-sm-12">
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="age1" name="symptoms[<?= $item['symptoms_code'] ?>]" value="1">
-                        <label class="form-check-label" for="age1">Yes</label>
+                        <input class="form-check-input" type="radio" id="age1<?= $i ?>" name="symptoms[<?= $item['symptoms_code'] ?>]" value="1">
+                        <label class="form-check-label" for="age1<?= $i ?>">Yes</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="age2" name="symptoms[<?= $item['symptoms_code'] ?>]" value="0">
-                        <label class="form-check-label" for="age2">No</label>
+                        <input class="form-check-input" type="radio" id="age2<?= $i ?>" name="symptoms[<?= $item['symptoms_code'] ?>]" value="0">
+                        <label class="form-check-label" for="age2<?= $i ?>">No</label>
                       </div>
                     </div>
                   </div>
-                <?php } ?>
+                <?php
+                  $i++;
+                }
+                ?>
             </div>
 
             <div class="card-footer text-right">
