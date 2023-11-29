@@ -23,7 +23,16 @@
               <?= csrf_field() ?>
               <div class="card-body">
                 <?= view('Myth\Auth\Views\_message_block') ?>
-
+                <div class="row">
+                  <div class="form-group col-6">
+                    <label for="first_name" class="d-block">First Name</label>
+                    <input type="text" name="first_name" class="form-control" placeholder="First Name">
+                  </div>
+                  <div class="form-group col-6">
+                    <label for="last_name" class="d-block">Last Name</label>
+                    <input type="text" name="last_name" class="form-control" placeholder="Last Name">
+                  </div>
+                </div>
                 <div class="form-group">
                   <label>Username</label>
                   <input type="text" class="form-control <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>" name="username" placeholder="<?= lang('Auth.username') ?>" value="<?= old('username') ?>">

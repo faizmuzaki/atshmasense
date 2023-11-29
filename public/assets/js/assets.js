@@ -7,6 +7,8 @@ document.getElementById("printButton").addEventListener("click", function () {
 });
 
 function writeDocumentContent(doc, content) {
+  var modifiedContent = content.replace('class="alert alert-warning"', "");
+
   doc.write(`<html><head>
 <title>Print</title>
 
@@ -41,6 +43,6 @@ function writeDocumentContent(doc, content) {
 `);
   doc.write(`<hr style="border: 1px solid black" />`);
 
-  doc.write(content);
+  doc.write(modifiedContent);
   doc.write("</body></html>");
 }

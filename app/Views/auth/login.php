@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <link href="<?= base_url('assets/img/logo.png') ?>" rel="icon" />
+
   <title>&mdash; Asthmasense</title>
 
   <!-- General CSS Files -->
