@@ -5,14 +5,18 @@ use App\Controllers\AuthController;
 use App\Controllers\Home;
 use App\Controllers\UserController;
 use App\Controllers\Article;
-
+use App\Controllers\Mahasiswa;
 use CodeIgniter\Router\RouteCollection;
 
 /**
  * @var RouteCollection $routes
  */
 $routes->get('/', [Home::class, 'index']);
-
+$routes->get('/api/mahasiswa/(:any)', [Mahasiswa::class, 'show']);
+$routes->put('/api/mahasiswa/(:any)', [Mahasiswa::class, 'update']);
+$routes->delete('/api/mahasiswa/(:any)', [Mahasiswa::class, 'delete']);
+$routes->get('/api/mahasiswa', [Mahasiswa::class, 'index']);
+$routes->post('/api/mahasiswa', [Mahasiswa::class, 'create']);
 
 $routes->get('/admin', [AdminController::class, 'index'], ['filter' => 'role:admin']);
 $routes->get('/admin/create', [AdminController::class, 'create'], ['filter' => 'role:admin']);
