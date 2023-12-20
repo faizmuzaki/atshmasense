@@ -56,8 +56,7 @@
                     <?php } ?>
                     <tr>
                       <td colspan="2">
-                        <strong>Penyakit Yang Diderita : </strong>
-                        <strong><?= $history[1]['disease'] ?></strong>
+                        <strong class="alert alert-warning">Penyakit Yang Diderita : <?= $history[1]['disease'] ?></strong>
                       </td>
                     </tr>
                   </table>

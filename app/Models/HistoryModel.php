@@ -59,4 +59,10 @@ class HistoryModel extends Model
         return $this->where('history_code', $code)
             ->findAll();
     }
+    public function getTotalHistory()
+    {
+        return $this->select('history.*')
+            ->groupBy('history.history_code')
+            ->findAll();
+    }
 }

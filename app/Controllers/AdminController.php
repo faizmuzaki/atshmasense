@@ -270,12 +270,36 @@ class AdminController extends BaseController
     public function storeArticle()
     {
         $client = \Config\Services::curlrequest();
+        $file = $this->request->getFile('image');
+        $cfile = new \CURLFile($file->getRealPath(), $file->getMimeType(), $file->getFilename());
         $client->request('POST', 'http://localhost/asthmasense/public/api/article', [
-            'form_params' => [
+            'multipart' => [
                 'title' => $this->request->getVar('title'),
                 'content' => $this->request->getVar('content'),
-                'image' => $this->request->getFile('image'),
+                'image' => $cfile,
             ]
         ]);
+        return redirect()->to(base_url('/admin/article'))->with('message', 'Berhasil menambah data');
+    }
+    public function updateArticle($id)
+    {
+        $client = \Config\Services::curlrequest();
+        $file = $this->request->getFile('image');
+        $cfile = new \CURLFile($file->getRealPath(), $file->getMimeType(), $file->getFilename());
+        $client->request('POST', 'http://localhost/asthmasense/public/api/article/' . $id, [
+            'multipart' => [
+                'title' => $this->request->getVar('title'),
+                'content' => $this->request->getVar('content'),
+                'image' => $cfile,
+                '_method' => 'PUT'
+            ]
+        ]);
+        return redirect()->to(base_url('/admin/article'))->with('message', 'Berhasil mengubah data');
+    }
+    public function deleteArticle($id)
+    {
+        $client = \Config\Services::curlrequest();
+        $client->request('DELETE', 'http://localhost/asthmasense/public/api/article/' . $id);
+        return redirect()->to(base_url('/admin/article'))->with('error', 'Berhasil menghapus data');
     }
 }

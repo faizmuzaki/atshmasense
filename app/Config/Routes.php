@@ -5,14 +5,18 @@ use App\Controllers\AuthController;
 use App\Controllers\Home;
 use App\Controllers\UserController;
 use App\Controllers\Article;
-
+use App\Controllers\Mahasiswa;
 use CodeIgniter\Router\RouteCollection;
 
 /**
  * @var RouteCollection $routes
  */
 $routes->get('/', [Home::class, 'index']);
-
+$routes->get('/api/mahasiswa/(:any)', [Mahasiswa::class, 'show']);
+$routes->put('/api/mahasiswa/(:any)', [Mahasiswa::class, 'update']);
+$routes->delete('/api/mahasiswa/(:any)', [Mahasiswa::class, 'delete']);
+$routes->get('/api/mahasiswa', [Mahasiswa::class, 'index']);
+$routes->post('/api/mahasiswa', [Mahasiswa::class, 'create']);
 
 $routes->get('/admin', [AdminController::class, 'index'], ['filter' => 'role:admin']);
 $routes->get('/admin/create', [AdminController::class, 'create'], ['filter' => 'role:admin']);
@@ -34,9 +38,12 @@ $routes->get('/admin/show/(:any)', [AdminController::class, 'showRule'], ['filte
 $routes->get('/admin/rule/(:any)/(:any)', [AdminController::class, 'updateRule'], ['filter' => 'role:admin']);
 $routes->put('/admin/rule/(:any)', [AdminController::class, 'updatesRule'], ['filter' => 'role:admin']);
 
-$routes->get('/admin/article', [AdminController::class, 'article'], ['filter' => 'role:admin']);
 $routes->get('/admin/article/create', [AdminController::class, 'createArticle'], ['filter' => 'role:admin']);
 $routes->get('/admin/article/(:any)/edit', [AdminController::class, 'editAriticle'], ['filter' => 'role:admin']);
+$routes->post('/admin/article', [AdminController::class, 'storeArticle'], ['filter' => 'role:admin']);
+$routes->get('/admin/article', [AdminController::class, 'article'], ['filter' => 'role:admin']);
+$routes->delete('/admin/article/(:any)', [AdminController::class, 'deleteArticle'], ['filter' => 'role:admin']);
+$routes->put('/admin/article/(:any)', [AdminController::class, 'updateArticle'], ['filter' => 'role:admin']);
 
 
 
