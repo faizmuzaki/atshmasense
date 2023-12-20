@@ -6,12 +6,11 @@
       <h1>Article</h1>
       <div class="section-header-breadcrumb">
         <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-        <div class="breadcrumb-item"><a href="#">Components</a></div>
         <div class="breadcrumb-item">Article</div>
       </div>
     </div>
 
-    <h2 class="section-title">Article Style C</h2>
+    <h2 class="section-title">Article</h2>
     <div class="row">
       <?php
       foreach ($article['article'] as $article) { ?>

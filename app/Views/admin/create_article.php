@@ -27,7 +27,7 @@
               <h4>Write Your Post</h4>
             </div>
             <div class="card-body">
-              <form action="<?= base_url('/api/article/') ?>" method="POST" enctype="multipart/form-data">
+              <form action="<?= base_url('/admin/article/') ?>" method="POST" enctype="multipart/form-data">
                 <?= csrf_field() ?>
 
                 <div class="form-group row mb-4">

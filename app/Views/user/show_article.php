@@ -31,7 +31,9 @@
         <div class="container px-4 px-lg-5">
           <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
-              <p class="mt-3 mb-5" style="text-align: justify;"><?= $article['content'] ?></p>
+              <p class="mt-3 mb-5 text-justify">
+                <?php echo $article['content']; ?>
+              </p>
             </div>
           </div>
         </div>

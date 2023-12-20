@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Login &mdash; Stisla</title>
+  <link href="<?= base_url('assets/img/logo.png') ?>" rel="icon" />
+
+  <title>&mdash; Asthmasense</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?= base_url('assets/modules/bootstrap/css/bootstrap.min.css') ?>">
@@ -55,10 +57,15 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="password"><?= lang('Auth.password') ?></label>
+                    <label for="password" class="control-label">Password</label>
                     <input type="password" name="password" class="form-control  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="<?= lang('Auth.password') ?>">
                     <div class="invalid-feedback">
                       <?= session('errors.password') ?>
+                    </div>
+                    <div class="float-right mt-2 mb-2">
+                      <a href="<?= base_url('/forgot') ?>" class="text-small">
+                        Forgot Password?
+                      </a>
                     </div>
                   </div>
 

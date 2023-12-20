@@ -11,7 +11,7 @@
             <canvas id="user-chart" height="80"></canvas>
           </div>
           <div class="card-icon shadow-primary bg-primary">
-            <i class="fas fa-dollar-sign"></i>
+            <i class="fas fa-stethoscope" aria-hidden="true"></i>
           </div>
           <div class="card-wrap">
             <div class="card-header">

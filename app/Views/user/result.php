@@ -56,8 +56,7 @@
                     <?php } ?>
                     <tr>
                       <td colspan="2">
-                        <strong>Penyakit Yang Diderita : </strong>
-                        <strong><?= $detected_disease ?></strong>
+                        <strong class="alert alert-warning">Penyakit Yang Diderita : <?= $detected_disease ?></strong>
                       </td>
                     </tr>
                   </table>

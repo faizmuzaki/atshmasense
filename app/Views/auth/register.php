@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Register &mdash; Stisla</title>
+  <link href="<?= base_url('assets/img/logo.png') ?>" rel="icon" />
+
+  <title>&mdash; Asthmasense</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?= base_url('assets/modules/bootstrap/css/bootstrap.min.css') ?>">
@@ -54,11 +56,11 @@
                   <div class="row">
                     <div class="form-group col-6">
                       <label for="first_name" class="d-block">First Name</label>
-                      <input type="text" name="first_name" class="form-control" placeholder="First Name">
+                      <input type="text" class="form-control <?php if (session('errors.first_name')) : ?>is-invalid<?php endif ?>" name="first_name" placeholder="First Name" value="<?= old('first_name') ?>">
                     </div>
                     <div class="form-group col-6">
                       <label for="last_name" class="d-block">Last Name</label>
-                      <input type="text" name="last_name" class="form-control" placeholder="Last Name">
+                      <input type="text" class="form-control <?php if (session('errors.last_name')) : ?>is-invalid<?php endif ?>" name="last_name" placeholder="Last Name" value="<?= old('last_name') ?>">
                     </div>
                   </div>
 
